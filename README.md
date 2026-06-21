@@ -1,195 +1,120 @@
-<div align="center">
+# 🚀 HackTrack *(Formerly Hack Management)*
 
-# 🚀 HackTrack
-
-### Modern Hackathon Management Platform
-
-*Formerly known as **Hack Management***
-
-A centralized platform for managing hackathons—from participant registration to final judging and live leaderboards.
-
-[![Live Demo](https://img.shields.io/badge/Live-Demo-success?logo=vercel)](https://err404-manager.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Vercel-Live-success?logo=vercel)](https://err404-manager.vercel.app)
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)](#)
-[![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite)](#)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite)](#)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css)](#)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-🌐 **Live:** https://err404-manager.vercel.app
+> **"Turning hackathon chaos into organized innovation."**
 
-</div>
-
----
-
-# 📖 Overview
-
-HackTrack is a role-based hackathon management platform designed to streamline every stage of a hackathon. It provides dedicated portals for Participants, Judges, Admins, and Super Admins, enabling organizers to efficiently manage registrations, team formation, QR-based check-ins, judging, and real-time leaderboard generation from a single dashboard.
-
-Instead of relying on spreadsheets and multiple disconnected tools, HackTrack centralizes the entire event lifecycle into one modern web application.
+HackTrack is a modern, role-based hackathon management platform that streamlines everything from participant registration and QR check-ins to judging, team management, and live leaderboards—all from a single dashboard.
 
 ---
 
-# ✨ Features
+## 🌐 Live Demo
 
-## 👨‍💻 Participant Portal
-
-- Registration & Authentication
-- Team Formation
-- QR Check-in
-- Food QR Verification
-- Certificate Access
-- Photo Uploads
-- Assigned Problem Statements
+**Production:** https://err404-manager.vercel.app
 
 ---
 
-## ⚖️ Judge Portal
+## 📖 About
 
-- Assigned Teams Dashboard
-- Team Evaluation
-- Score Submission
-- Edit Previous Scores
-- Feedback Management
+HackTrack was built to simplify the logistics of organizing hackathons. Instead of juggling spreadsheets, forms, and multiple communication channels, organizers can manage the complete event lifecycle through one centralized application.
 
----
+The platform provides dedicated portals for **Participants**, **Judges**, **Admins**, and **Super Admins**, ensuring each role has access only to the tools and information they need.
 
-## 🛠 Admin Portal
-
-- Participant Management
-- Team Management
-- Bulk User Import
-- QR Check-in Operations
-- Food Distribution
-- Dashboard Analytics
+Whether you're running a university hackathon or a large-scale coding competition, HackTrack helps organizers focus on the event—not the operations.
 
 ---
 
-## 👑 Super Admin Portal
+## ✨ Features
 
-- Judge Assignment
-- Problem Statement Allocation
-- Team Monitoring
-- Live Leaderboards
-- Complete Event Administration
+### 👨‍💻 Participant Portal
 
----
+* Secure authentication
+* Team formation
+* QR-based event check-in
+* Food distribution QR
+* Assigned problem statements
+* Certificate access
+* Photo uploads
 
-## 🔐 Authentication & Security
+### ⚖️ Judge Portal
 
-- Role-Based Access Control (RBAC)
-- Protected Routes
-- Secure Authentication
-- Permission-based Navigation
-- Route Guards for all user roles
+* Assigned team dashboard
+* Score submission
+* Edit evaluations
+* Feedback management
+* Previous submissions
 
----
+### 🛠 Admin Portal
 
-# 🛠 Tech Stack
+* Participant management
+* Team management
+* Bulk user import
+* QR check-in operations
+* Food distribution management
+* Dashboard overview
 
-| Category | Technology |
-|-----------|------------|
-| Frontend | React 18 |
-| Build Tool | Vite |
-| Routing | React Router DOM |
-| Styling | Tailwind CSS |
-| State Management | Context API |
-| HTTP Client | Axios |
-| Backend | Node.js + Express |
-| Database | MongoDB |
-| Authentication | JWT |
-| Deployment | Vercel |
+### 👑 Super Admin Portal
 
----
+* Judge assignment
+* Problem statement allocation
+* Team management
+* Live leaderboard
+* User management
+* Complete event administration
 
-# 🏗 Architecture
+### 🔐 Security
 
-HackTrack follows a role-isolated architecture where each authenticated user is redirected to a dedicated workspace based on their permissions.
-
-```
-                    Login
-                      │
-          Authentication (JWT)
-                      │
-        ┌─────────────┼─────────────┐
-        │             │             │
-        ▼             ▼             ▼
- Participant      Judge         Admin
-        │             │             │
-        └─────────────┼─────────────┘
-                      ▼
-                 Super Admin
-                      │
-                      ▼
-                 REST API Server
-                      │
-                      ▼
-                  MongoDB
-```
-
-Route protection is enforced using custom route wrappers to prevent unauthorized access across all user roles.
+* Role-Based Access Control (RBAC)
+* Protected Routes
+* JWT Authentication
+* Permission-based navigation
+* Secure session management
 
 ---
 
-# 🌐 Live Demo
+## 🛠 Technology Stack
 
-🔗 https://err404-manager.vercel.app
-
----
-
-# 🚀 Getting Started
-
-## Prerequisites
-
-- Node.js (v14 or higher)
-- npm
-- Running HackTrack Backend API
-
----
-
-## Installation
-
-Clone the repository
-
-```bash
-git clone https://github.com/rsayyed591/HackTrack-client.git
-
-cd HackTrack-client
-```
-
-Install dependencies
-
-```bash
-npm install
-```
-
-Create environment file
-
-```bash
-cp .env.example .env
-```
-
-Configure
-
-```env
-VITE_API_BASE_URL=http://localhost:5000
-```
-
-Run the development server
-
-```bash
-npm run dev
-```
+| Category             | Technology        |
+| -------------------- | ----------------- |
+| **Frontend**         | React 18          |
+| **Build Tool**       | Vite              |
+| **Routing**          | React Router DOM  |
+| **Styling**          | Tailwind CSS      |
+| **State Management** | Context API       |
+| **HTTP Client**      | Axios             |
+| **Backend**          | Node.js + Express |
+| **Database**         | MongoDB           |
+| **Deployment**       | Vercel            |
 
 ---
 
-# 📂 Project Structure
+## 🏗 Architecture
 
-```
+The frontend follows a role-based architecture where every authenticated user is redirected to a dedicated workspace based on their permissions.
+
+Authentication is managed through a centralized **AuthContext**, while route protection is enforced using custom wrapper components such as:
+
+* `ProtectedRoute`
+* `AdminRoute`
+* `JudgeRoute`
+* `SuperAdminRoute`
+
+This ensures users cannot access routes or interfaces outside their assigned role.
+
+---
+
+## 📂 Project Structure
+
+```text
 src/
-│
 ├── components/
 │   ├── AutoComplete.jsx
-│   ├── Loader.jsx
 │   ├── GoBackButton.jsx
+│   ├── Loader.jsx
 │   └── ProtectedRoute.jsx
 │
 ├── contexts/
@@ -206,126 +131,127 @@ src/
 │   └── api.js
 │
 ├── App.jsx
-└── main.jsx
+├── main.jsx
+└── index.css
 ```
 
 ---
 
-# ⚡ Performance
+## 🚀 Getting Started
 
-- Responsive UI
-- Optimized API calls
-- Protected client-side routing
-- Context-based authentication
-- Modular architecture
-- Fast Vite builds
+### Prerequisites
+
+* Node.js **14+**
+* npm
+* Running HackTrack Backend API
+
+### Installation
+
+Clone the repository.
+
+```bash
+git clone https://github.com/rsayyed591/HackTrack-client.git
+
+cd HackTrack-client
+```
+
+Install dependencies.
+
+```bash
+npm install
+```
+
+Create an environment file.
+
+```bash
+cp .env.example .env
+```
+
+Configure your environment variables.
+
+```env
+VITE_API_BASE_URL=http://localhost:5000
+```
+
+Start the development server.
+
+```bash
+npm run dev
+```
 
 ---
 
-# 📸 Screenshots
+## ⚙️ Environment Variables
 
-> Add screenshots of:
-
-- Login Page
-- Participant Dashboard
-- Admin Dashboard
-- Judge Dashboard
-- Super Admin Dashboard
-- Leaderboard
-- QR Check-in
-- Team Management
+| Variable            | Description          |
+| ------------------- | -------------------- |
+| `VITE_API_BASE_URL` | Backend API base URL |
 
 ---
 
-# 🗺 Roadmap
+## 🗺 Roadmap
 
-- [ ] Route-based code splitting
-- [ ] WebSocket-powered live leaderboards
-- [ ] Push notifications
-- [ ] Dark Mode
-- [ ] Export reports (PDF/Excel)
-- [ ] Analytics Dashboard
-- [ ] Email Notifications
-- [ ] Multi-event support
+* [ ] Route-based code splitting
+* [ ] Live leaderboard updates using WebSockets
+* [ ] Event analytics dashboard
+* [ ] Email notifications
+* [ ] Multi-event support
+* [ ] Dark mode
+* [ ] Export reports
+* [ ] Docker deployment
 
 ---
 
-# 🤝 Contributing
+## 🤝 Contributing
 
-Contributions are welcome.
+Contributions are always welcome.
 
-1. Fork the repository
-
-2. Create a feature branch
+1. Fork the repository.
+2. Create a feature branch.
 
 ```bash
 git checkout -b feature/amazing-feature
 ```
 
-3. Commit changes
+3. Commit your changes.
 
 ```bash
 git commit -m "feat: add amazing feature"
 ```
 
-4. Push changes
+4. Push your branch.
 
 ```bash
 git push origin feature/amazing-feature
 ```
 
-5. Open a Pull Request
+5. Open a Pull Request.
 
 ---
 
-# 👨‍💻 Developers
+## 🙏 Acknowledgements
 
-## Frontend
+Special thanks to **Rehan Shah** for designing and developing the backend architecture and APIs that power HackTrack.
 
-**Rehan Sayyed**
-
-- GitHub: https://github.com/rsayyed591
-- LinkedIn: https://linkedin.com/in/rehan42
-- Portfolio: https://iamrehan.dev
+**GitHub:** https://github.com/rehannn03
 
 ---
 
-## Backend
+## 👨‍💻 Author
 
-**Rehan Shah**
+### Rehan Sayyed
 
-GitHub:
-https://github.com/rehannn03
-
----
-
-# 🙏 Acknowledgements
-
-Special thanks to everyone who contributed to HackTrack.
-
-Built using:
-
-- React
-- Vite
-- Tailwind CSS
-- Node.js
-- Express
-- MongoDB
-- Vercel
-
----
-
-# 📄 License
-
-Distributed under the MIT License.
-
-See the **LICENSE** file for more information.
+* 🌐 Portfolio: https://iamrehan.dev
+* GitHub: https://github.com/rsayyed591
+* LinkedIn: https://linkedin.com/in/rehan42
 
 ---
 
 <div align="center">
 
-### ⭐ If you found this project useful, consider giving it a star!
+### ⭐ Enjoying HackTrack?
+
+If you found this project useful, consider giving it a **star**.
 
 Made with ❤️ by **Rehan Sayyed**
 
