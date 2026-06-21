@@ -1,177 +1,332 @@
-# Hackathon Management System
+<div align="center">
 
-A **comprehensive platform** for managing hackathons, built with **React**, **Node.js**, and styled using **Tailwind CSS**. This system facilitates participant registration, team formation, judging, and overall event management.
+# 🚀 HackTrack
 
----
+### Modern Hackathon Management Platform
 
-## Authors
+*Formerly known as **Hack Management***
 
-- **Rehan Sayyed** (Frontend) - [GitHub Profile](https://github.com/rsayyed591)  
-- **Rehan Shah** (Backend) - [GitHub Profile](https://github.com/rehannn03)
+A centralized platform for managing hackathons—from participant registration to final judging and live leaderboards.
 
----
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success?logo=vercel)](https://err404-manager.vercel.app)
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)](#)
+[![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite)](#)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css)](#)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## Features
+🌐 **Live:** https://err404-manager.vercel.app
 
-- **User Authentication** - Login and registration with role-based access control.
-- **Participant Management** - Includes registration, team formation, and check-in features.
-- **Judge Assignment and Scoring System** - Efficient allocation of judges and score tracking.
-- **Admin Dashboard** - Provides complete event oversight.
-- **Responsive Design** - Built with Tailwind CSS for seamless usability across devices.
-
----
-
-## Live Demo
-
-The application is deployed and accessible at: [Hackathon Management System](https://err404-manager.vercel.app/)
+</div>
 
 ---
 
-## File Structure
+# 📖 Overview
+
+HackTrack is a role-based hackathon management platform designed to streamline every stage of a hackathon. It provides dedicated portals for Participants, Judges, Admins, and Super Admins, enabling organizers to efficiently manage registrations, team formation, QR-based check-ins, judging, and real-time leaderboard generation from a single dashboard.
+
+Instead of relying on spreadsheets and multiple disconnected tools, HackTrack centralizes the entire event lifecycle into one modern web application.
+
+---
+
+# ✨ Features
+
+## 👨‍💻 Participant Portal
+
+- Registration & Authentication
+- Team Formation
+- QR Check-in
+- Food QR Verification
+- Certificate Access
+- Photo Uploads
+- Assigned Problem Statements
+
+---
+
+## ⚖️ Judge Portal
+
+- Assigned Teams Dashboard
+- Team Evaluation
+- Score Submission
+- Edit Previous Scores
+- Feedback Management
+
+---
+
+## 🛠 Admin Portal
+
+- Participant Management
+- Team Management
+- Bulk User Import
+- QR Check-in Operations
+- Food Distribution
+- Dashboard Analytics
+
+---
+
+## 👑 Super Admin Portal
+
+- Judge Assignment
+- Problem Statement Allocation
+- Team Monitoring
+- Live Leaderboards
+- Complete Event Administration
+
+---
+
+## 🔐 Authentication & Security
+
+- Role-Based Access Control (RBAC)
+- Protected Routes
+- Secure Authentication
+- Permission-based Navigation
+- Route Guards for all user roles
+
+---
+
+# 🛠 Tech Stack
+
+| Category | Technology |
+|-----------|------------|
+| Frontend | React 18 |
+| Build Tool | Vite |
+| Routing | React Router DOM |
+| Styling | Tailwind CSS |
+| State Management | Context API |
+| HTTP Client | Axios |
+| Backend | Node.js + Express |
+| Database | MongoDB |
+| Authentication | JWT |
+| Deployment | Vercel |
+
+---
+
+# 🏗 Architecture
+
+HackTrack follows a role-isolated architecture where each authenticated user is redirected to a dedicated workspace based on their permissions.
 
 ```
-└── rsayyed591-Hack-Management-Frontend/
-    ├── README.md
-    ├── .env
-    ├── eslint.config.js
-    ├── index.html
-    ├── package.json
-    ├── postcss.config.js
-    ├── tailwind.config.js
-    ├── vercel.json
-    ├── vite.config.js
-    ├── public/
-    └── src/
-        ├── App.jsx
-        ├── index.css
-        ├── main.jsx
-        ├── components/
-        │   ├── AutoComplete.jsx
-        │   ├── GoBackButton.jsx
-        │   ├── Loader.jsx
-        │   └── ProtectedRoute.jsx
-        ├── contexts/
-        │   └── AuthContext.jsx
-        ├── pages/
-        │   ├── Hero.jsx
-        │   ├── admin/
-        │   │   ├── AddBulkUser.jsx
-        │   │   ├── AddPS.jsx
-        │   │   ├── AddTeam.jsx
-        │   │   ├── AddUser.jsx
-        │   │   ├── AdminDashboard.jsx
-        │   │   ├── CheckIn.jsx
-        │   │   ├── CheckInQR.jsx
-        │   │   ├── CheckedInUsers.jsx
-        │   │   ├── Dashboard.jsx
-        │   │   ├── FoodQR.jsx
-        │   │   ├── Participants.jsx
-        │   │   └── Teams.jsx
-        │   ├── auth/
-        │   │   ├── Login.jsx
-        │   │   └── RoleSelection.jsx
-        │   ├── judge/
-        │   │   ├── AssignedTeams.jsx
-        │   │   ├── EditMarks.jsx
-        │   │   ├── GiveMarks.jsx
-        │   │   └── Judge.jsx
-        │   ├── participant/
-        │   │   ├── Certificate.jsx
-        │   │   ├── CheckIn.jsx
-        │   │   ├── Food.jsx
-        │   │   ├── Participant.jsx
-        │   │   ├── Photos.jsx
-        │   │   └── ProblemStatement.jsx
-        │   └── superadmin/
-        │       ├── AddTeam.jsx
-        │       ├── AddUser.jsx
-        │       ├── AssignJudges.jsx
-        │       ├── AssignedJudges.jsx
-        │       ├── Dashboard.jsx
-        │       ├── LeaderBoard.jsx
-        │       ├── Participants.jsx
-        │       ├── SuperAdminDashboard.jsx
-        │       └── Teams.jsx
-        └── services/
-            └── api.js
+                    Login
+                      │
+          Authentication (JWT)
+                      │
+        ┌─────────────┼─────────────┐
+        │             │             │
+        ▼             ▼             ▼
+ Participant      Judge         Admin
+        │             │             │
+        └─────────────┼─────────────┘
+                      ▼
+                 Super Admin
+                      │
+                      ▼
+                 REST API Server
+                      │
+                      ▼
+                  MongoDB
 ```
+
+Route protection is enforced using custom route wrappers to prevent unauthorized access across all user roles.
+
+---
+
+# 🌐 Live Demo
+
+🔗 https://err404-manager.vercel.app
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+- Node.js (v14 or higher)
+- npm
+- Running HackTrack Backend API
 
 ---
 
 ## Installation
 
-To set up the project locally, follow these steps:
+Clone the repository
 
-### Prerequisites
+```bash
+git clone https://github.com/rsayyed591/HackTrack-client.git
 
-- **Node.js** (v14 or higher)
-- **npm** (v6 or higher)
+cd HackTrack-client
+```
 
-### Steps
+Install dependencies
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/rsayyed591/Hack-Management-Frontend.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd Hack-Management-Frontend
-    ```
-3. Install dependencies:
-    ```bash
-    npm install
-    ```
-4. Create a `.env` file in the root directory and add necessary environment variables.
-5. Start the development server:
-    ```bash
-    npm run dev
-    ```
+```bash
+npm install
+```
 
----
+Create environment file
 
-## Contributing
+```bash
+cp .env.example .env
+```
 
-Contributions make the open-source community an amazing place to learn and grow. Any contributions you make are **greatly appreciated**.
+Configure
 
-### Steps to Contribute:
+```env
+VITE_API_BASE_URL=http://localhost:5000
+```
 
-1. Fork the repository.
-2. Create a feature branch:
-    ```bash
-    git checkout -b feature/YourFeature
-    ```
-3. Commit your changes:
-    ```bash
-    git commit -m 'Add YourFeature'
-    ```
-4. Push to the branch:
-    ```bash
-    git push origin feature/YourFeature
-    ```
-5. Open a pull request.
+Run the development server
+
+```bash
+npm run dev
+```
 
 ---
 
-## License
+# 📂 Project Structure
 
-This project is distributed under the **MIT License**. See the `LICENSE` file for details.
+```
+src/
+│
+├── components/
+│   ├── AutoComplete.jsx
+│   ├── Loader.jsx
+│   ├── GoBackButton.jsx
+│   └── ProtectedRoute.jsx
+│
+├── contexts/
+│   └── AuthContext.jsx
+│
+├── pages/
+│   ├── admin/
+│   ├── auth/
+│   ├── judge/
+│   ├── participant/
+│   └── superadmin/
+│
+├── services/
+│   └── api.js
+│
+├── App.jsx
+└── main.jsx
+```
 
 ---
 
-## Contact
+# ⚡ Performance
 
-- **Rehan Sayyed** - [LinkedIn](https://linkedin.com/in/rehan42) - rehansayyed591@gmail.com  
-- **Project Repository** - [GitHub Repo](https://github.com/rsayyed591/Hack-Management-Frontend)
+- Responsive UI
+- Optimized API calls
+- Protected client-side routing
+- Context-based authentication
+- Modular architecture
+- Fast Vite builds
 
 ---
 
-## Acknowledgements
+# 📸 Screenshots
 
-- [React](https://reactjs.org)
-- [Node.js](https://nodejs.org)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Vercel](https://vercel.com)
-- [GitHub](https://github.com)
+> Add screenshots of:
 
-Special thanks to **Rehan Shah** for developing the backend. Visit his GitHub profile: [rehannn03](https://github.com/rehannn03).
+- Login Page
+- Participant Dashboard
+- Admin Dashboard
+- Judge Dashboard
+- Super Admin Dashboard
+- Leaderboard
+- QR Check-in
+- Team Management
 
+---
+
+# 🗺 Roadmap
+
+- [ ] Route-based code splitting
+- [ ] WebSocket-powered live leaderboards
+- [ ] Push notifications
+- [ ] Dark Mode
+- [ ] Export reports (PDF/Excel)
+- [ ] Analytics Dashboard
+- [ ] Email Notifications
+- [ ] Multi-event support
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+1. Fork the repository
+
+2. Create a feature branch
+
+```bash
+git checkout -b feature/amazing-feature
+```
+
+3. Commit changes
+
+```bash
+git commit -m "feat: add amazing feature"
+```
+
+4. Push changes
+
+```bash
+git push origin feature/amazing-feature
+```
+
+5. Open a Pull Request
+
+---
+
+# 👨‍💻 Developers
+
+## Frontend
+
+**Rehan Sayyed**
+
+- GitHub: https://github.com/rsayyed591
+- LinkedIn: https://linkedin.com/in/rehan42
+- Portfolio: https://iamrehan.dev
+
+---
+
+## Backend
+
+**Rehan Shah**
+
+GitHub:
+https://github.com/rehannn03
+
+---
+
+# 🙏 Acknowledgements
+
+Special thanks to everyone who contributed to HackTrack.
+
+Built using:
+
+- React
+- Vite
+- Tailwind CSS
+- Node.js
+- Express
+- MongoDB
+- Vercel
+
+---
+
+# 📄 License
+
+Distributed under the MIT License.
+
+See the **LICENSE** file for more information.
+
+---
+
+<div align="center">
+
+### ⭐ If you found this project useful, consider giving it a star!
+
+Made with ❤️ by **Rehan Sayyed**
+
+</div>
