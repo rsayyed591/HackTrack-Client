@@ -30,80 +30,91 @@ Whether you're running a university hackathon or a large-scale coding competitio
 
 ## ✨ Features
 
-### 👨‍💻 Participant Portal
+| Module | Features |
+|--------|----------|
+| 👨‍💻 **Participant** | Registration, Authentication, Team Formation, QR Check-in, Food QR, Problem Statements, Certificate Download, Photo Uploads |
+| ⚖️ **Judge** | Assigned Teams, Score Submission, Edit Evaluations, Feedback Management, Previous Scores |
+| 🛠 **Admin** | Participant Management, Team Management, Bulk User Import, QR Operations, Food Distribution, Dashboard |
+| 👑 **Super Admin** | Judge Assignment, Problem Statement Allocation, Team Management, Live Leaderboards, User Management |
+| 🔐 **Security** | JWT Authentication, Role-Based Access Control (RBAC), Protected Routes, Permission-based Navigation |
 
-* Secure authentication
-* Team formation
-* QR-based event check-in
-* Food distribution QR
-* Assigned problem statements
-* Certificate access
-* Photo uploads
+---
 
-### ⚖️ Judge Portal
+## 🖥️ User Interface
 
-* Assigned team dashboard
-* Score submission
-* Edit evaluations
-* Feedback management
-* Previous submissions
+HackTrack provides dedicated dashboards for every user role, ensuring that participants, judges, organizers, and administrators have access only to the tools they need.
 
-### 🛠 Admin Portal
+<div align="center">
 
-* Participant management
-* Team management
-* Bulk user import
-* QR check-in operations
-* Food distribution management
-* Dashboard overview
+<img src="./public/hero.png" alt="HackTrack Dashboard" width="900"/>
 
-### 👑 Super Admin Portal
-
-* Judge assignment
-* Problem statement allocation
-* Team management
-* Live leaderboard
-* User management
-* Complete event administration
-
-### 🔐 Security
-
-* Role-Based Access Control (RBAC)
-* Protected Routes
-* JWT Authentication
-* Permission-based navigation
-* Secure session management
+</div>
 
 ---
 
 ## 🛠 Technology Stack
 
-| Category             | Technology        |
-| -------------------- | ----------------- |
-| **Frontend**         | React 18          |
-| **Build Tool**       | Vite              |
-| **Routing**          | React Router DOM  |
-| **Styling**          | Tailwind CSS      |
-| **State Management** | Context API       |
-| **HTTP Client**      | Axios             |
-| **Backend**          | Node.js + Express |
-| **Database**         | MongoDB           |
-| **Deployment**       | Vercel            |
+| Category | Technology |
+|-----------|------------|
+| Frontend | React 18 |
+| Build Tool | Vite |
+| Routing | React Router DOM |
+| Styling | Tailwind CSS |
+| State Management | Context API |
+| HTTP Client | Axios |
+| Authentication | JWT |
+| Backend | Node.js + Express |
+| Database | MongoDB |
+| Deployment | Vercel |
 
 ---
 
-## 🏗 Architecture
+## 🏗️ System Architecture
 
-The frontend follows a role-based architecture where every authenticated user is redirected to a dedicated workspace based on their permissions.
+HackTrack follows a role-based client-server architecture where authentication, routing, and business logic are separated into dedicated layers.
 
-Authentication is managed through a centralized **AuthContext**, while route protection is enforced using custom wrapper components such as:
+<div align="center">
 
-* `ProtectedRoute`
-* `AdminRoute`
-* `JudgeRoute`
-* `SuperAdminRoute`
+<img src="./public/architecture.png" alt="HackTrack Architecture" width="900"/>
 
-This ensures users cannot access routes or interfaces outside their assigned role.
+</div>
+
+### Architecture Overview
+
+```
+                  Browser
+                     │
+                     ▼
+              React + Vite Client
+                     │
+               React Router DOM
+                     │
+              Authentication Layer
+             (AuthContext + JWT)
+                     │
+          Protected Route Components
+                     │
+      ┌──────────────┼──────────────┐
+      ▼              ▼              ▼
+ Participant      Judge         Admin
+                                      │
+                                      ▼
+                               Super Admin
+                                      │
+                                      ▼
+                               Express API
+                                      │
+                                      ▼
+                                  MongoDB
+```
+
+### Architecture Highlights
+
+- **Authentication Layer** manages user sessions using JWT tokens.
+- **Protected Routes** restrict access based on user roles.
+- **Role-Based Dashboards** isolate functionality for Participants, Judges, Admins, and Super Admins.
+- **REST API** handles authentication, team management, QR operations, judging, and leaderboard generation.
+- **MongoDB** stores users, teams, scores, and event data.
 
 ---
 
